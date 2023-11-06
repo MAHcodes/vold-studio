@@ -27,58 +27,6 @@ const SERVICES = [
 ];
 ---
 
-<script>
-  const more = document.querySelectorAll(".more");
-  const less = document.querySelectorAll(".less");
-  const services = document.querySelectorAll("#services li");
-  const overlay = document.getElementById("overlay");
-  const close = document.querySelectorAll("button.close");
-
-  const closeService = () => {
-    overlay?.classList.remove("active");
-    document.documentElement.classList.remove("overlay");
-
-    services.forEach((s) => {
-      s.classList.remove("active");
-    });
-  };
-
-  overlay?.addEventListener("click", (e) => {
-    e.stopPropagation();
-    closeService();
-  });
-
-  close.forEach((c) => {
-    c.addEventListener("click", closeService);
-  });
-
-  less.forEach((l) => {
-    l.addEventListener("click", () => {
-      closeService();
-      location.assign("#contact");
-    });
-  });
-
-  more.forEach((m) => {
-    if (m instanceof HTMLElement) {
-      m.addEventListener("click", () => {
-        overlay?.classList.add("active");
-        document.documentElement.classList.add("overlay");
-        const read = m.dataset.read;
-        services.forEach((service) => {
-          if (service instanceof HTMLElement) {
-            if (service.dataset.service === read) {
-              service.classList.add("active");
-            } else {
-              service.classList.remove("active");
-            }
-          }
-        });
-      });
-    }
-  });
-</script>
-
 <section id="services">
   <div class="container">
     <h2>Our Services</h2>
@@ -215,3 +163,55 @@ const SERVICES = [
     @apply absolute z-10 -bottom-4 right-0 w-8;
   }
 </style>
+
+<script>
+  const more = document.querySelectorAll(".more");
+  const less = document.querySelectorAll(".less");
+  const services = document.querySelectorAll("#services li");
+  const overlay = document.getElementById("overlay");
+  const close = document.querySelectorAll("button.close");
+
+  const closeService = () => {
+    overlay?.classList.remove("active");
+    document.documentElement.classList.remove("overlay");
+
+    services.forEach((s) => {
+      s.classList.remove("active");
+    });
+  };
+
+  overlay?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    closeService();
+  });
+
+  close.forEach((c) => {
+    c.addEventListener("click", closeService);
+  });
+
+  less.forEach((l) => {
+    l.addEventListener("click", () => {
+      closeService();
+      location.assign("#contact");
+    });
+  });
+
+  more.forEach((m) => {
+    if (m instanceof HTMLElement) {
+      m.addEventListener("click", () => {
+        overlay?.classList.add("active");
+        document.documentElement.classList.add("overlay");
+        const read = m.dataset.read;
+        services.forEach((service) => {
+          if (service instanceof HTMLElement) {
+            if (service.dataset.service === read) {
+              service.classList.add("active");
+            } else {
+              service.classList.remove("active");
+            }
+          }
+        });
+      });
+    }
+  });
+</script>

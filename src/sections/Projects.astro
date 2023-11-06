@@ -1,0 +1,89 @@
+---
+const PROJECTS = [
+  {
+    img: "https://www.kotanna.com/img/fundraiser.jpg",
+    url: "#",
+  },
+  {
+    img: "https://www.kotanna.com/img/fundraiser.jpg",
+    url: "#",
+  },
+  {
+    img: "https://www.kotanna.com/img/fundraiser.jpg",
+    url: "#",
+  },
+  {
+    img: "https://www.kotanna.com/img/fundraiser.jpg",
+    url: "#",
+  },
+];
+---
+
+<section id="projects">
+  <div class="container">
+    <h2>Selected Projects</h2>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique
+      nesciunt, necessitatibus corporis architecto natus vel porro fuga autem
+      neque saepe nam accusantium quaerat eligendi quisquam voluptatem
+      reprehenderit doloremque itaque dolore.
+    </p>
+    <ul>
+      {
+        PROJECTS.map(({ img, url }) => (
+          <li>
+            <a href={url} target="_blank">
+              <img decoding="async" loading="lazy" src={img} alt={url} />
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+  <img id="f" src="/f.svg" alt="f">
+</section>
+
+<style>
+  section {
+    @apply py-44 text-center overflow-hidden relative;
+  }
+
+  h2 {
+    @apply text-white;
+  }
+
+  p {
+    @apply text-white/80 max-w-4xl mx-auto my-8;
+  }
+
+  ul {
+    @apply flex gap-4 w-fit mt-16 lg:mt-32;
+  }
+
+  li {
+    @apply p-3 bg-white rounded-lg;
+  }
+
+  li img {
+    @apply block h-full w-full object-cover;
+  }
+
+  li a {
+    @apply block aspect-video relative overflow-hidden rounded-lg h-52 lg:h-96;
+  }
+
+  li a::before {
+    content: "";
+    background-image: url("/open.svg");
+    background-size: 3rem;
+    @apply opacity-0 bg-no-repeat bg-center bg-black/50 absolute inset-0 m-auto z-40 transition-opacity;
+  }
+
+  li a:hover::before {
+    @apply opacity-100;
+  }
+
+  #f {
+    @apply absolute -bottom-4 -right-4 w-32;
+  }
+</style>

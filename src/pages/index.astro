@@ -1,14 +1,29 @@
 ---
+import "../styles/tailwind.css";
+import "../styles/global.css";
 import Main from "../layouts/Main.astro";
 import Hero from "../sections/Hero.astro";
 import Services from "../sections/Services.astro";
-import "../styles/tailwind.css"
-import "../styles/global.css"
+import Projects from "../sections/Projects.astro";
 ---
 
 <Main>
   <main>
     <Hero />
     <Services />
+    <div class="bg">
+      <Projects />
+    </div>
   </main>
 </Main>
+
+<style>
+  .bg {
+    background-image: radial-gradient(
+      130.91% 201.71% at -40.37% -16.36%,
+      #6868fa 0%,
+      #4524cb 99%
+    );
+    @apply bg-interdimensional-blue;
+  }
+</style>
