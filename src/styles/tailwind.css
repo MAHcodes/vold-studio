@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --fz-sm: clamp(0.8rem, 0.17vw + 0.76rem, 0.89rem);
+    --fz-base: clamp(1rem, 0.34vw + 0.91rem, 1.19rem);
+    --fz-md: clamp(1.25rem, 0.61vw + 1.1rem, 1.58rem);
+    --fz-lg: clamp(1.56rem, 1vw + 1.31rem, 2.11rem);
+    --fz-xl: clamp(1.95rem, 1.56vw + 1.56rem, 2.81rem);
+    --fz-2xl: clamp(2.44rem, 2.38vw + 1.85rem, 3.75rem);
+    --fz-3xl: clamp(3.05rem, 3.54vw + 2.17rem, 5rem);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-bold;
+  }
+
+  h1 {
+    @apply text-3xl;
+  }
+
+  h2 {
+    @apply text-2xl;
+  }
+
+  h3 {
+    @apply text-xl;
+  }
+
+  h4 {
+    @apply text-lg;
+  }
+
+  h5 {
+    @apply text-md;
+  }
+
+  h6 {
+    @apply text-base;
+  }
+}

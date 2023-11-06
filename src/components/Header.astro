@@ -1,6 +1,57 @@
-<header id="header" class="absolute top-0 left-0 right-0 container p-4">
-  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum officia
-  explicabo iusto ratione laborum, atque dolorem eveniet maxime necessitatibus
-  dignissimos, obcaecati mollitia? Impedit distinctio fugiat nihil ratione fuga
-  vitae provident.
+---
+const links = [
+  {
+    label: "Home",
+    href: "#home",
+  },
+  {
+    label: "Services",
+    href: "#services",
+  },
+  {
+    label: "Work",
+    href: "#work",
+  },
+  {
+    label: "About",
+    href: "#about",
+  },
+  {
+    label: "Contact",
+    href: "#contact",
+  },
+];
+---
+
+<header id="header">
+  <span> Vold Studio</span>
+  <nav>
+    <ul>
+      {
+        links.map(({ label, href }) => (
+          <li>
+            <a href={href}>{label}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
 </header>
+
+<style>
+  header {
+    @apply absolute z-10 top-0 left-0 right-0 container p-4 flex items-center gap-4 justify-between text-white uppercase;
+  }
+
+  ul {
+    @apply flex items-center gap-8 py-4;
+  }
+
+  a {
+    @apply underline-offset-8;
+  }
+
+  a:hover {
+    @apply underline;
+  }
+</style>

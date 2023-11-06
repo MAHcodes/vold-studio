@@ -1,0 +1,4 @@
+html.overlay,
+html.overlay body {
+  overflow: hidden;
+}

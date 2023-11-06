@@ -1,0 +1,217 @@
+---
+const SERVICES = [
+  {
+    icon: "/visualid.svg",
+    title: "Visual Identity",
+    summary:
+      "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
+    description:
+      "Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet voluptate voluptate dolor minim nulla est proident. Nostrud officia pariatur ut officia. Sit irure elit esse ea nulla sunt ex occaecat reprehenderit commodo officia dolor Lorem duis laboris cupidatat officia voluptate. Culpa proident adipisicing id nulla nisi laboris ex in Lorem sunt duis officia eiusmod. Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim. Voluptate laboris sint cupidatat ullamco ut ea consectetur et est culpa et culpa duis.",
+  },
+  {
+    icon: "/socialmedia.svg",
+    title: "Social Media Management",
+    summary:
+      "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
+    description:
+      "Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet voluptate voluptate dolor minim nulla est proident. Nostrud officia pariatur ut officia. Sit irure elit esse ea nulla sunt ex occaecat reprehenderit commodo officia dolor Lorem duis laboris cupidatat officia voluptate. Culpa proident adipisicing id nulla nisi laboris ex in Lorem sunt duis officia eiusmod. Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim. Voluptate laboris sint cupidatat ullamco ut ea consectetur et est culpa et culpa duis.",
+  },
+  {
+    icon: "/posters.svg",
+    title: "Posters",
+    summary:
+      "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
+    description:
+      "Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet voluptate voluptate dolor minim nulla est proident. Nostrud officia pariatur ut officia. Sit irure elit esse ea nulla sunt ex occaecat reprehenderit commodo officia dolor Lorem duis laboris cupidatat officia voluptate. Culpa proident adipisicing id nulla nisi laboris ex in Lorem sunt duis officia eiusmod. Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim. Voluptate laboris sint cupidatat ullamco ut ea consectetur et est culpa et culpa duis.",
+  },
+];
+---
+
+<script>
+  const more = document.querySelectorAll(".more");
+  const less = document.querySelectorAll(".less");
+  const services = document.querySelectorAll("#services li");
+  const overlay = document.getElementById("overlay");
+  const close = document.querySelectorAll("button.close");
+
+  const closeService = () => {
+    overlay?.classList.remove("active");
+    document.documentElement.classList.remove("overlay");
+
+    services.forEach((s) => {
+      s.classList.remove("active");
+    });
+  };
+
+  overlay?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    closeService();
+  });
+
+  close.forEach((c) => {
+    c.addEventListener("click", closeService);
+  });
+
+  less.forEach((l) => {
+    l.addEventListener("click", () => {
+      closeService();
+      location.assign("#contact");
+    });
+  });
+
+  more.forEach((m) => {
+    if (m instanceof HTMLElement) {
+      m.addEventListener("click", () => {
+        overlay?.classList.add("active");
+        document.documentElement.classList.add("overlay");
+        const read = m.dataset.read;
+        services.forEach((service) => {
+          if (service instanceof HTMLElement) {
+            if (service.dataset.service === read) {
+              service.classList.add("active");
+            } else {
+              service.classList.remove("active");
+            }
+          }
+        });
+      });
+    }
+  });
+</script>
+
+<section id="services">
+  <div class="container">
+    <h2>Our Services</h2>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique
+      nesciunt, necessitatibus corporis architecto natus vel porro fuga autem
+      neque saepe nam accusantium quaerat eligendi quisquam voluptatem
+      reprehenderit doloremque itaque dolore.
+    </p>
+    <ul>
+      {
+        SERVICES.map(({ icon, title, summary, description }, idx) => (
+          <li data-service={idx}>
+            <button class="close">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                class="w-6 h-6"
+              >
+                <path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" />
+              </svg>
+            </button>
+            <div>
+              <img src={icon} alt={title} />
+              <h3>{title}</h3>
+              <p class="summary">{summary}</p>
+              <p class="description">{description}</p>
+            </div>
+            <button class="more" data-read={idx}>
+              read more
+            </button>
+            <button class="less">contact us</button>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+  <img id="e" src="/e.svg" alt="e" />
+</section>
+
+<style>
+  section {
+    @apply py-32 text-center relative;
+  }
+
+  .container {
+    @apply flex flex-col items-center;
+  }
+
+  h2 {
+    @apply text-interdimensional-blue;
+  }
+
+  section > div > p {
+    @apply max-w-4xl text-gray-600 mt-8;
+  }
+
+  ul {
+    @apply flex flex-col lg:flex-row w-full items-center justify-between gap-4 mt-32;
+  }
+
+  li {
+    background-image: radial-gradient(
+      109.35% 146.97% at 73.39% 121.5%,
+      #6868fa 0%,
+      #4524cb 99%
+    );
+    @apply flex flex-col rounded-lg max-w-sm transition-all relative;
+  }
+
+  li.active {
+    @apply fixed inset-0 z-20 m-auto overflow-y-auto min-h-[80vh] max-h-[90vh] max-w-full md:max-w-xl lg:max-w-4xl;
+  }
+
+  li > div {
+    @apply flex flex-col flex-1 items-center gap-4 px-4 py-12;
+  }
+
+  li img {
+    @apply w-28;
+  }
+
+  li.active img {
+    @apply w-full max-w-[16rem];
+  }
+
+  li h3 {
+    @apply text-white text-md;
+  }
+
+  li p {
+    @apply text-white/80;
+  }
+
+  li button.close {
+    @apply absolute top-4 left-4 text-lg p-2 rounded-full text-white hidden;
+  }
+
+  li button.close:hover {
+    @apply bg-white/20;
+  }
+
+  li.active button.close {
+    @apply inline-block;
+  }
+
+  li button.less,
+  li button.more {
+    background-color: #1b1464;
+    background-image: radial-gradient(
+      428.36% 90.94% at -20.57% -129.22%,
+      #1b1464 0%,
+      #4524cb 99%
+    );
+    @apply w-full text-white py-4 rounded-lg;
+  }
+
+  li.active button.more,
+  li p.description,
+  li.active p.summary,
+  li button.less {
+    @apply hidden;
+  }
+
+  li.active button.less,
+  li.active p.description,
+  li p.summary,
+  li button.more {
+    @apply block;
+  }
+
+  #e {
+    @apply absolute z-10 -bottom-4 right-0 w-8;
+  }
+</style>

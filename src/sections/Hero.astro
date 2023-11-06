@@ -1,11 +1,60 @@
-<section id="home" class="bg-indigo-500 min-h-screen">
-  <div class="container">
-    Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.
+<section id="home">
+  <div>
+    <h1>vold studio</h1>
+    <h3>Realize your creativity</h3>
+    <p>
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Possimus
+      assumenda amet reprehenderit magni perferendis quasi voluptatem iste
+      ducimus quidem beatae! Perferendis sed atque illum deleniti minus
+      laudantium ducimus placeat cumque!
+    </p>
+    <a href="#contact">Contact</a>
   </div>
+  <img id="o" src="/o.svg" alt="o" />
+  <img id="d" src="/d.svg" alt="d" />
+  <img id="c" src="/c.svg" alt="c" />
 </section>
 
 <style>
-.container {
-  padding-top: calc(var(--header-height) + 1rem);
-}
+  section {
+    background-image: url(/+.svg), url(/hero.svg);
+    background-repeat: repeat, no-repeat;
+    background-size:
+      225px auto,
+      auto 100%;
+    background-position:
+      0 0,
+      center;
+    aspect-ratio: 545/322;
+    @apply text-white relative text-center min-h-screen flex justify-center w-full h-auto;
+  }
+
+  div {
+    /* padding-top: calc(var(--header-height) + 1rem); */
+    @apply container flex flex-col items-center justify-center;
+  }
+
+  h3 {
+    @apply font-light tracking-widest;
+  }
+
+  p {
+    @apply max-w-4xl my-8;
+  }
+
+  a {
+    @apply inline-block py-4 px-8 bg-white text-interdimensional-blue rounded-full;
+  }
+
+  #o {
+    @apply absolute -top-4 -left-4 w-24 blur-sm;
+  }
+
+  #d {
+    @apply absolute bottom-0 left-0 w-32 md:w-52 lg:w-72 translate-y-1/2;
+  }
+
+  #c {
+    @apply absolute bottom-0 right-0 w-32 md:w-56 -translate-y-1/2;
+  }
 </style>
