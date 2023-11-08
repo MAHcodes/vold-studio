@@ -36,17 +36,34 @@ const titleVars: gsap.TweenVars = {
 const servicesTl = () => {
   ScrollTrigger.create({
     trigger: "section#services",
-    start: "bottom 90%",
+    markers: true,
+    start: "bottom bottom-=300px",
     end: "bottom top",
-    animation: gsap.fromTo(
-      "#s",
-      {
-        yPercent: 100,
-      },
-      {
-        yPercent: 0,
-      },
-    ),
+    animation: gsap
+      .timeline()
+      .fromTo(
+        "#s",
+        {
+          yPercent: 100,
+        },
+        {
+          yPercent: 0,
+        },
+      )
+      .fromTo(
+        "#bg",
+        {
+          backgroundImage: "unset",
+          backgroundColor: "transparent",
+        },
+        {
+          backgroundColor: "#4524CB",
+          backgroundImage:
+            "linear-gradient(180deg, #6868fa 0%, rgba(104, 104, 250, 0.00) 53.98%), radial-gradient( 130.91% 201.71% at -40.37% -16.36%, #6868fa 0%, #4524cb 99%)",
+          duration: 0,
+        },
+        "-=1.5",
+      ),
   });
 
   const tl = gsap.timeline({
