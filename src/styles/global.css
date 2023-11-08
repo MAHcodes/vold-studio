@@ -1,6 +1,6 @@
-html.overlay,
-html.overlay body {
-  overflow: hidden;
+html,
+body {
+  overflow-x: hidden;
 }
 
 img {

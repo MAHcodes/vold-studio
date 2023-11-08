@@ -81,9 +81,11 @@ const servicesTl = () => {
     .fromTo(
       "#services ul li",
       {
+        clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
         opacity: 0,
       },
       {
+        clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
         opacity: 1,
         stagger: 0.25,
       },
@@ -179,10 +181,41 @@ const aboutTl = () => {
         stagger: 0.5,
         y: 0,
       },
-    "-=1.5");
+      "-=1.5",
+    );
+};
+
+const contactTl = () => {
+  const tl = gsap.timeline({
+    scrollTrigger: "section#contact",
+    start: "top bottom",
+  });
+
+  return tl
+    .fromTo("#contact h2", titleVars, {
+      opacity: 1,
+      y: 0,
+      stagger: 0.5,
+    })
+    .from(
+      "#contact img",
+      {
+        opacity: 0,
+        top: 100,
+        stagger: 0.25,
+      },
+    )
+    .from(
+      "#contact form",
+      {
+        opacity: 0,
+      },
+      "-=1.5",
+    );
 };
 
 const masterTl = gsap.timeline();
 masterTl.add(servicesTl());
 masterTl.add(projectsTl());
 masterTl.add(aboutTl());
+masterTl.add(contactTl());

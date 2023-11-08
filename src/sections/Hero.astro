@@ -1,5 +1,11 @@
+---
+import Header from "../components/Header.astro";
+---
+
+
 <section id="home">
-  <div>
+  <Header />
+  <hero>
     <h1>vold studio</h1>
     <h3>Realize your creativity</h3>
     <p>
@@ -9,7 +15,7 @@
       laudantium ducimus placeat cumque!
     </p>
     <a href="#contact">Contact</a>
-  </div>
+  </hero>
   <img id="o" src="/o.svg" alt="o" />
   <img id="d" src="/d.svg" alt="d" />
   <img id="c" src="/c.svg" alt="c" />
@@ -26,12 +32,11 @@
       0 0,
       center;
     aspect-ratio: 545/322;
-    @apply text-white relative text-center min-h-screen flex justify-center w-full h-auto;
+    @apply text-white;
   }
 
-  div {
-    /* padding-top: calc(var(--header-height) + 1rem); */
-    @apply container flex flex-col items-center justify-center;
+  hero {
+    @apply relative text-center min-h-screen w-full h-auto container flex flex-col items-center justify-center py-24;
   }
 
   h3 {
@@ -51,10 +56,10 @@
   }
 
   #d {
-    @apply absolute bottom-0 left-0 w-32 md:w-52 lg:w-72 translate-y-1/2;
+    @apply absolute bottom-0 left-0 w-32 xl:w-52 2xl:w-72 translate-y-1/2 hidden md:block;
   }
 
   #c {
-    @apply absolute bottom-0 right-0 w-32 md:w-56 -translate-y-1/2;
+    @apply absolute bottom-0 right-0 w-32 xl:w-56 -translate-y-1/2 hidden md:block;
   }
 </style>

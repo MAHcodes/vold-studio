@@ -16,6 +16,19 @@ export default {
         "2xl": "var(--fz-2xl)",
         "3xl": "var(--fz-3xl)",
       },
+      keyframes: {
+        float: {
+          "0%, 100%": {
+            transform: "translateY(0px)",
+          },
+          "50%": {
+            transform: "translateY(-20px)",
+          },
+        },
+      },
+      animation: {
+        float: 'float 6s ease-in-out infinite',
+      },
       colors: {
         "very-light-blue": "#6868FA",
         "interdimensional-blue": "#4524CB",

@@ -1,8 +1,80 @@
 <section id="contact">
+  <h2>Contact Us</h2>
+  <wrapper>
+    <form action="mailto:name@example.com?subject=VoldStudio" method="post" enctype="text/plain">
+      <input id="name" name="name" required type="text" placeholder="Your Name" />
+      <label hidden for="name">Your Name</label>
+      <input id="email" type="email" required name="email" placeholder="Your Email" />
+      <label hidden for="email">Your Email</label>
+      <textarea name="msg" id="msg" required rows="4" placeholder="Message"></textarea>
+      <input type="submit" />
+    </form>
+
+    <img id="v" src="/v.svg" alt="v" />
+    <img id="p" src="/p.svg" alt="p" />
+    <img id="a" src="/a.svg" alt="a" />
+    <img id="l" src="/l.svg" alt="l" />
+    <img id="w" src="/w.svg" alt="w" />
+  </wrapper>
 </section>
 
 <style>
-section {
-  @apply h-screen
-}
+  section {
+    @apply h-screen py-32;
+  }
+
+  h2 {
+    @apply text-center text-white mb-16 lg:mb-32;
+  }
+
+  wrapper {
+    @apply container block max-w-4xl relative;
+  }
+
+  form {
+    @apply flex flex-col bg-clip-padding backdrop-filter backdrop-blur-md bg-white/30 p-4 md:p-12 rounded-3xl relative z-10 gap-4 shadow-xl shadow-interdimensional-blue border-2 border-white;
+  }
+
+  textarea,
+  input {
+    @apply border-2 border-white rounded-3xl placeholder-current p-4 focus:outline-0;
+  }
+
+  textarea,
+  input[type="text"],
+  input[type="email"] {
+    @apply text-white bg-transparent;
+  }
+
+  input[type="submit"] {
+    @apply bg-white text-black cursor-pointer hover:bg-very-light-blue hover:text-white transition-colors;
+  }
+
+  #w,
+  #v,
+  #a,
+  #p,
+  #l {
+    @apply absolute animate-float;
+  }
+
+  #w {
+    @apply z-0 -bottom-8 -right-8 w-64;
+  }
+
+  #v {
+    @apply z-0 top-0 left-1/2 -translate-y-1/2 -translate-x-1/2 w-32;
+  }
+
+  #a {
+    @apply z-0 top-4 -left-14 opacity-50 w-32;
+  }
+
+  #p {
+    @apply z-0 top-4 -right-14 w-44;
+  }
+
+  #l {
+    @apply z-0 bottom-4 -left-14 w-44;
+  }
 </style>

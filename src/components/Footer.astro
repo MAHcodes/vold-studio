@@ -1,0 +1,37 @@
+---
+const SOCIALS = [
+  {
+    icon: "",
+    href: "#",
+  },
+  {
+    icon: "",
+    href: "#",
+  },
+  {
+    icon: "",
+    href: "#",
+  },
+];
+---
+
+<footer>
+  <span>Vold Studio - &copy; {new Date().getFullYear()}</span>
+  <ul>
+    {
+      SOCIALS.map(({ icon, href }) => (
+        <li>
+          <a href={href}>
+            <img src={icon} alt="" />
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</footer>
+
+<style>
+  footer {
+    @apply container flex flex-col md:flex-row items-center gap-4 text-white mt-44 py-8;
+  }
+</style>
