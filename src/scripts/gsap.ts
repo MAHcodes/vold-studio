@@ -33,6 +33,48 @@ const titleVars: gsap.TweenVars = {
   y: 100,
 };
 
+const servicesTl = () => {
+  ScrollTrigger.create({
+    trigger: "section#services",
+    start: "bottom 90%",
+    end: "bottom top",
+    animation: gsap.fromTo(
+      "#s",
+      {
+        yPercent: 100,
+      },
+      {
+        yPercent: 0,
+      },
+    ),
+  });
+
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: "section#services",
+    },
+  });
+
+  return tl
+    .fromTo("#services > div > h2, #services > div > p", titleVars, {
+      opacity: 1,
+      y: 0,
+      stagger: 0.5,
+    })
+    .fromTo(
+      "#services ul li",
+      {
+        opacity: 0,
+        y: 100,
+      },
+      {
+        opacity: 1,
+        y: 0,
+      },
+      "-=1.75",
+    );
+};
+
 const projectsTl = () => {
   const projWrapper = document.querySelector("#projects .container");
   const projects = document.querySelector("#projects ul");
@@ -99,4 +141,5 @@ const projectsTl = () => {
 };
 
 const masterTl = gsap.timeline();
+masterTl.add(servicesTl());
 masterTl.add(projectsTl());
