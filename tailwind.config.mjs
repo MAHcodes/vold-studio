@@ -27,7 +27,7 @@ export default {
         },
       },
       animation: {
-        float: 'float 6s ease-in-out infinite',
+        float: "float 6s ease-in-out infinite",
       },
       colors: {
         "very-light-blue": "#6868FA",

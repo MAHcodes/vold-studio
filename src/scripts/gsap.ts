@@ -204,6 +204,7 @@ const contactTl = () => {
         top: 100,
         stagger: 0.25,
       },
+      "<",
     )
     .from(
       "#contact form",
