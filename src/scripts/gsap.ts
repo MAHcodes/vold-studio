@@ -51,6 +51,7 @@ const servicesTl = () => {
 
   const tl = gsap.timeline({
     scrollTrigger: {
+      start: "top bottom",
       trigger: "section#services",
     },
   });
@@ -65,13 +66,14 @@ const servicesTl = () => {
       "#services ul li",
       {
         opacity: 0,
-        y: 100,
+        y: 200,
       },
       {
-        opacity: 1,
         y: 0,
+        opacity: 1,
+        stagger: 0.25,
       },
-      "-=1.75",
+      "<",
     );
 };
 
