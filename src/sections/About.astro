@@ -1,0 +1,65 @@
+---
+const ABOUT = [
+  {
+    icon: "/i.svg",
+    description:
+      "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
+  },
+  {
+    icon: "/m.svg",
+    description:
+      "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
+  },
+  {
+    icon: "/k.svg",
+    description:
+      "Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.",
+  },
+];
+---
+
+<section id="about">
+  <img id="b" src="/b.svg" alt="b">
+  <h2>About Us</h2>
+  <ul>
+    {
+      ABOUT.map(({ icon, description }) => (
+        <li>
+          <img src={icon} alt="icon" />
+          <p>{description}</p>
+        </li>
+      ))
+    }
+  </ul>
+  <img id="r" src="/r.svg" alt="r">
+</section>
+
+<style>
+  section {
+    @apply py-32 text-white relative;
+  }
+
+  h2 {
+    @apply text-center;
+  }
+
+  #b {
+    @apply w-14 h-14 block mx-auto mb-6;
+  }
+
+  ul {
+    @apply container flex flex-col lg:flex-row items-center justify-between gap-8 mt-16 lg:mt-32;
+  }
+
+  li {
+    @apply flex flex-col items-center gap-8 px-4;
+  }
+
+  li img {
+    @apply w-16 h-16;
+  }
+
+  #r {
+    @apply absolute top-1/2 left-0 w-24;
+  }
+</style>

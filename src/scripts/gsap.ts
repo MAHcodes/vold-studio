@@ -36,8 +36,7 @@ const titleVars: gsap.TweenVars = {
 const servicesTl = () => {
   ScrollTrigger.create({
     trigger: "section#services",
-    markers: true,
-    start: "bottom bottom-=300px",
+    start: "bottom bottom-=320px",
     end: "bottom top",
     animation: gsap
       .timeline()
@@ -83,10 +82,8 @@ const servicesTl = () => {
       "#services ul li",
       {
         opacity: 0,
-        y: 200,
       },
       {
-        y: 0,
         opacity: 1,
         stagger: 0.25,
       },
