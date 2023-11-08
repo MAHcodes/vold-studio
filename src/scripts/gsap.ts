@@ -156,6 +156,33 @@ const projectsTl = () => {
     );
 };
 
+const aboutTl = () => {
+  const tl = gsap.timeline({
+    scrollTrigger: "section#about",
+    start: "top bottom",
+  });
+
+  return tl
+    .fromTo("#about #b, #about h2", titleVars, {
+      opacity: 1,
+      y: 0,
+      stagger: 0.5,
+    })
+    .fromTo(
+      "#about ul li",
+      {
+        opacity: 0,
+        y: 100,
+      },
+      {
+        opacity: 1,
+        stagger: 0.5,
+        y: 0,
+      },
+    "-=1.5");
+};
+
 const masterTl = gsap.timeline();
 masterTl.add(servicesTl());
 masterTl.add(projectsTl());
+masterTl.add(aboutTl());
