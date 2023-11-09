@@ -13,7 +13,11 @@ import Header from "../components/Header.astro";
       ducimus quidem beatae! Perferendis sed atque illum deleniti minus
       laudantium ducimus placeat cumque!
     </p>
-    <a href="#contact">Contact</a>
+    <mas>
+      <span>Contact</span>
+      <a href="#contact">Contact</a>
+    </mas>
+    <img id="u" src="/u.svg" alt="u" />
   </hero>
   <img id="o" src="/o.svg" alt="o" />
   <img id="d" src="/d.svg" alt="d" />
@@ -46,8 +50,73 @@ import Header from "../components/Header.astro";
     @apply max-w-4xl my-8;
   }
 
+  @-webkit-keyframes ani {
+    from {
+      -webkit-mask-position: 0 0;
+      mask-position: 0 0;
+    }
+    to {
+      -webkit-mask-position: 100% 0;
+      mask-position: 100% 0;
+    }
+  }
+  @keyframes ani {
+    from {
+      -webkit-mask-position: 0 0;
+      mask-position: 0 0;
+    }
+    to {
+      -webkit-mask-position: 100% 0;
+      mask-position: 100% 0;
+    }
+  }
+  @-webkit-keyframes ani2 {
+    from {
+      -webkit-mask-position: 100% 0;
+      mask-position: 100% 0;
+    }
+    to {
+      -webkit-mask-position: 0 0;
+      mask-position: 0 0;
+    }
+  }
+
+  @keyframes ani2 {
+    from {
+      -webkit-mask-position: 100% 0;
+      mask-position: 100% 0;
+    }
+    to {
+      -webkit-mask-position: 0 0;
+      mask-position: 0 0;
+    }
+  }
+
+  mas {
+    @apply border-2 text-base relative border-white inline-block rounded-full overflow-hidden;
+  }
+
+  mas span {
+    @apply absolute inset-0 inline-block  text-white py-4 px-8 bg-gradient-to-r from-interdimensional-blue to-very-light-blue;
+  }
+
   a {
-    @apply inline-block py-4 px-8 bg-white text-interdimensional-blue rounded-full;
+    -webkit-mask: url("/n.png");
+    mask: url("/n.png");
+    -webkit-mask-size: 7100% 100%;
+    mask-size: 7100% 100%;
+    -webkit-animation: ani2 0.7s steps(70) forwards;
+    animation: ani2 0.7s steps(70) forwards;
+    @apply inline-block py-4 px-8 bg-white text-interdimensional-blue;
+  }
+
+  a:hover {
+    -webkit-animation: ani 0.7s steps(70) forwards;
+    animation: ani 0.7s steps(70) forwards;
+  }
+
+  #u {
+    @apply mt-24 w-12 h-12 animate-down;
   }
 
   #o {

@@ -25,9 +25,23 @@ export default {
             transform: "translateY(-20px)",
           },
         },
+        down: {
+          "0%": {
+            opacity: 0,
+            transform: "translateY(-20px)",
+          },
+          "50%": {
+            opacity: 1,
+          },
+          "100%": {
+            opacity: 0,
+            transform: "translateY(20px)",
+          }
+        }
       },
       animation: {
         float: "float 6s ease-in-out infinite",
+        down: "down 2s ease infinite",
       },
       colors: {
         "very-light-blue": "#6868FA",
