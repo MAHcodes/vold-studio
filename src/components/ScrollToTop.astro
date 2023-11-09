@@ -1,0 +1,50 @@
+<button id="top" style="transform: translateY(100%); opacity: 0">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 20 20"
+    fill="currentColor"
+    class="w-5 h-5"
+  >
+    <path
+      fill-rule="evenodd"
+      d="M10 17a.75.75 0 01-.75-.75V5.612L5.29 9.77a.75.75 0 01-1.08-1.04l5.25-5.5a.75.75 0 011.08 0l5.25 5.5a.75.75 0 11-1.08 1.04l-3.96-4.158V16.25A.75.75 0 0110 17z"
+      clip-rule="evenodd"></path>
+  </svg>
+</button>
+
+<style>
+  button {
+    @apply transition-all fixed bottom-4 right-4 z-10 text-white p-2 rounded-full bg-gradient-to-r from-very-light-blue to-interdimensional-blue;
+  }
+</style>
+
+<script>
+  const top = document.getElementById("top");
+  const home = document.getElementById("home");
+  const homeHeight = home?.clientHeight || 0;
+
+  const showTop = () => {
+    if (top) {
+      top.style.transform = "translateY(0)";
+      top.style.opacity = "1";
+    }
+  };
+
+  const hideTop = () => {
+    if (top) {
+      top.style.transform = "translateY(100%)";
+      top.style.opacity = "0";
+    }
+  };
+
+  const handleTop = () => {
+    if (window.scrollY >= homeHeight / 2) {
+      showTop();
+    } else {
+      hideTop();
+    }
+  };
+
+  document.addEventListener("scroll", handleTop);
+  document.addEventListener("load", handleTop);
+</script>

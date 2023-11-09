@@ -3,6 +3,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const lenis = new Lenis();
+export default lenis;
 
 lenis.on("scroll", ScrollTrigger.update);
 
@@ -17,4 +18,8 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     e.preventDefault();
     lenis.scrollTo(e.target.getAttribute("href"));
   });
+});
+
+document.getElementById("top").addEventListener("click", () => {
+    lenis.scrollTo(0);
 });

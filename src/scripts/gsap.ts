@@ -81,12 +81,10 @@ const servicesTl = () => {
     .fromTo(
       "#services ul li",
       {
-        clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
-        opacity: 0,
+        y: 100,
       },
       {
-        clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-        opacity: 1,
+        y: 0,
         stagger: 0.25,
       },
       "<",

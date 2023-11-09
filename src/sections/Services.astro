@@ -170,6 +170,9 @@ const SERVICES = [
 </style>
 
 <script>
+  // @ts-ignore
+  import lenis from "../scripts/lenis";
+
   const more = document.querySelectorAll(".more");
   const less = document.querySelectorAll(".less");
   const services = document.querySelectorAll("#services li");
@@ -178,10 +181,13 @@ const SERVICES = [
 
   const closeService = () => {
     overlay?.classList.remove("active");
-    delete document.body.dataset.lenisPrevent;
+    lenis.start();
 
     services.forEach((s) => {
       s.classList.remove("active");
+      if (s instanceof HTMLElement) {
+        delete s.dataset.lenisPrevent;
+      }
     });
   };
 
@@ -205,14 +211,16 @@ const SERVICES = [
     if (m instanceof HTMLElement) {
       m.addEventListener("click", () => {
         overlay?.classList.add("active");
-        document.body.dataset.lenisPrevent = "";
+        lenis.stop();
         const read = m.dataset.read;
         services.forEach((service) => {
           if (service instanceof HTMLElement) {
             if (service.dataset.service === read) {
               service.classList.add("active");
+              service.dataset.lenisPrevent = "";
             } else {
               service.classList.remove("active");
+              delete service.dataset.lenisPrevent;
             }
           }
         });

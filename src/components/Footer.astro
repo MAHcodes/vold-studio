@@ -1,15 +1,15 @@
 ---
 const SOCIALS = [
   {
-    icon: "",
+    icon: "/facebook.svg",
     href: "#",
   },
   {
-    icon: "",
+    icon: "/twitter.svg",
     href: "#",
   },
   {
-    icon: "",
+    icon: "/instagram.svg",
     href: "#",
   },
 ];
@@ -32,6 +32,18 @@ const SOCIALS = [
 
 <style>
   footer {
-    @apply container flex flex-col md:flex-row items-center gap-4 text-white mt-44 py-8;
+    @apply container flex flex-col md:flex-row items-center justify-between gap-4 text-white py-8;
+  }
+
+  ul {
+    @apply flex items-center gap-4;
+  }
+
+  li {
+    @apply hover:scale-125 transition-transform;
+  }
+
+  img {
+    @apply w-8 h-8;
   }
 </style>

@@ -1,0 +1,35 @@
+<loading
+  >Loading
+  <dots></dots>
+</loading>
+
+<style>
+  loading {
+    background-image: radial-gradient(
+      130.91% 201.71% at -40.37% -16.36%,
+      #6868fa 0%,
+      #4524cb 99%
+    );
+    @apply fixed z-50 inset-0 bg-interdimensional-blue h-screen w-full flex items-center justify-center text-white text-3xl;
+  }
+  loading.hide {
+    @apply hidden !important;
+  }
+</style>
+
+<script>
+  const dots = document.querySelector<HTMLElement>("dots");
+
+  setInterval(() => {
+    if (dots) {
+      dots.innerText.length >= 3
+        ? (dots.innerText = "")
+        : (dots.innerText = dots.innerText += ".");
+    }
+  }, 500);
+
+  window.onload = () => {
+    document.querySelector("loading")?.classList.add("hide");
+    document.querySelector("main")?.classList.remove("hidden");
+  };
+</script>
