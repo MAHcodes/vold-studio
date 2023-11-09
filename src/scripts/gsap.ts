@@ -33,13 +33,11 @@ gsap
   .fromTo(
     "header a, header li",
     {
-      clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
       opacity: 0,
       y: 50,
     },
     {
       opacity: 1,
-      clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
       stagger: 0.05,
       y: 0,
     },

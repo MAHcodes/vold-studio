@@ -25,7 +25,9 @@ const links = [
 
 <header id="header">
   <wrap>
-    <a href="#"> Vold Studio</a>
+    <a href="#">
+      <img id="logo" src="/g.svg" alt="Vold Studio Logo">
+    </a>
 
     <div class="block lg:hidden">
       <button
@@ -59,6 +61,10 @@ const links = [
 <style>
   header {
     @apply container p-4 flex flex-col md:flex-row relative z-40 items-center gap-4 justify-between text-white uppercase;
+  }
+
+  #logo {
+    @apply w-auto h-12;
   }
 
   wrap {

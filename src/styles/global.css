@@ -1,6 +1,7 @@
 html,
 body {
   overflow-x: hidden;
+  font-family: "Roboto", sans-serif;
 }
 
 img {
@@ -25,4 +26,21 @@ html.lenis {
 
 .lenis.lenis-scrolling iframe {
   pointer-events: none;
+}
+
+@font-face {
+  font-family: "AirStripArabic";
+  src: url("/fonts/AirStripArabicRegular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "AirStripArabic", "Roboto", "sans-serif";
 }

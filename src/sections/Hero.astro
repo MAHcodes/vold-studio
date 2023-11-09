@@ -17,7 +17,9 @@ import Header from "../components/Header.astro";
       <span>Contact</span>
       <a href="#contact">Contact</a>
     </mas>
-    <img id="u" src="/u.svg" alt="u" />
+    <a href="#services">
+      <img id="u" src="/u.svg" alt="u" />
+    </a>
   </hero>
   <img id="o" src="/o.svg" alt="o" />
   <img id="d" src="/d.svg" alt="d" />
@@ -100,7 +102,7 @@ import Header from "../components/Header.astro";
     @apply absolute inset-0 inline-block  text-white py-4 px-8 bg-gradient-to-r from-interdimensional-blue to-very-light-blue;
   }
 
-  a {
+  a[href="#contact"] {
     -webkit-mask: url("/n.png");
     mask: url("/n.png");
     -webkit-mask-size: 7100% 100%;
@@ -110,13 +112,17 @@ import Header from "../components/Header.astro";
     @apply inline-block py-4 px-8 bg-white text-interdimensional-blue;
   }
 
-  a:hover {
+  a[href="#contact"]:hover {
     -webkit-animation: ani 0.7s steps(70) forwards;
     animation: ani 0.7s steps(70) forwards;
   }
 
-  #u {
-    @apply mt-24 w-12 h-12 animate-down;
+  a[href="#services"] {
+    @apply mt-24 inline-block;
+  }
+
+  a[href="#services"] img {
+    @apply w-12 h-12 animate-down pointer-events-none;
   }
 
   #o {
