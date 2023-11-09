@@ -14,19 +14,62 @@ ScrollTrigger.defaults({
   scrub: 1,
 });
 
-gsap.fromTo(
-  "#home > div > *",
-  {
-    clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
-    opacity: 0,
-  },
-  {
-    clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-    opacity: 1,
-    y: -50,
-    stagger: 0.25,
-  },
-);
+gsap
+  .timeline()
+  .fromTo(
+    "#home > hero > *",
+    {
+      clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+      y: 50,
+      opacity: 0,
+    },
+    {
+      clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+      opacity: 1,
+      y: 0,
+      stagger: 0.25,
+    },
+  )
+  .fromTo(
+    "header a, header li",
+    {
+      clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+      opacity: 0,
+      y: 50,
+    },
+    {
+      opacity: 1,
+      clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+      stagger: 0.05,
+      y: 0,
+    },
+    "-=1.5",
+  )
+  .from(
+    "#o",
+    {
+      xPercent: -100,
+      yPercent: -100,
+      opacity: 0,
+    },
+    "<",
+  )
+  .from(
+    "#d",
+    {
+      xPercent: -100,
+      opacity: 0,
+    },
+    "<",
+  )
+  .from(
+    "#c",
+    {
+      xPercent: 100,
+      opacity: 0,
+    },
+    "<",
+  );
 
 const titleVars: gsap.TweenVars = {
   opacity: 0,
