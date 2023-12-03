@@ -2,10 +2,12 @@
   <h2>Contact Us</h2>
   <wrapper>
     <form
-      action="mailto:name@example.com?subject=VoldStudio"
+      action="voldstudio25@gmail.com"
       method="post"
       enctype="text/plain"
     >
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_subject" value="Vold Studio Submission!">
       <input
         id="name"
         name="name"
@@ -14,6 +16,14 @@
         placeholder="Your Name"
       />
       <label hidden for="name">Your Name</label>
+      <label hidden for="number">Your Phone Number</label>
+      <input
+        id="number"
+        name="number"
+        required
+        type="text"
+        placeholder="Your Phone Number"
+      />
       <input
         id="email"
         type="email"
