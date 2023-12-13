@@ -44,3 +44,23 @@ h5,
 h6 {
   font-family: "AirStripArabic", "Roboto", "sans-serif";
 }
+
+
+* {
+  scrollbar-color: #4524CB white;
+}
+*::-webkit-scrollbar {
+  width: 0.4rem;
+}
+*::-webkit-scrollbar-track {
+  @apply bg-white;
+}
+*::-webkit-scrollbar-track:hover {
+  @apply bg-very-light-blue/20;
+}
+*::-webkit-scrollbar-thumb {
+  @apply rounded bg-interdimensional-blue;
+}
+*::-webkit-scrollbar-thumb:hover {
+  @apply bg-very-light-blue;
+}

@@ -29,7 +29,7 @@ const links = [
       <img id="logo" src="/g.svg" alt="Vold Studio Logo">
     </a>
 
-    <div class="block lg:hidden">
+    <div class="block md:hidden">
       <button
         id="toggle"
         class="flex items-center p-3 border rounded text-white border-white"
@@ -72,7 +72,7 @@ const links = [
   }
 
   ul {
-    @apply flex flex-col md:flex-row items-center gap-8 py-4;
+    @apply flex flex-col md:flex-row items-center gap-8 md:gap-16 lg:gap-32 py-4;
   }
 
   a {

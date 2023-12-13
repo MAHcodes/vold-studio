@@ -1,6 +1,7 @@
 ---
 import Overlay from "../components/Overlay.astro";
 import { GoogleFontsOptimizer } from "astro-google-fonts-optimizer";
+import { SEO } from "astro-seo";
 ---
 
 <!doctype html>
@@ -14,7 +15,38 @@ import { GoogleFontsOptimizer } from "astro-google-fonts-optimizer";
     <GoogleFontsOptimizer
       url="https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap"
     />
-    <title>Vold Studio</title>
+    <SEO
+      title="Vold Studio | Realize your creativity"
+      description="We were born in 2021. Our first goal was to earn the customer money, and we have succeeded in creating this and distinguishing our services."
+      openGraph={{
+        basic: {
+          title: "Vold Studio | Realize your creativity",
+          type: "website",
+          image: "/preview.png",
+        },
+      }}
+      twitter={{
+        creator: "@jonasmerlins1",
+      }}
+      extend={{
+        link: [{ rel: "icon", href: "/logo.svg" }],
+        meta: [
+          {
+            name: "twitter:image",
+            content: "/preview.png",
+          },
+          {
+            name: "twitter:title",
+            content: "Vold Studio | Realize your creativity",
+          },
+          {
+            name: "twitter:description",
+            content:
+              "We were born in 2021. Our first goal was to earn the customer money, and we have succeeded in creating this and distinguishing our services.",
+          },
+        ],
+      }}
+    />
   </head>
   <body>
     <slot />
